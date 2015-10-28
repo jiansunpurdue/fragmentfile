@@ -9,16 +9,15 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
     comEnergy = cms.double(5020.0),
     maxEventsToPrint = cms.untracked.int32(0),
     ExternalDecays = cms.PSet(
-        EvtGen = cms.untracked.PSet(
-            use_default_decay = cms.untracked.bool(False),
-            use_internal_pythia = cms.untracked.bool(False),
-            decay_table = cms.FileInPath('GeneratorInterface/ExternalDecays/data/DECAY_NOLONGLIFE.DEC'),
-            particle_property_file = cms.FileInPath('GeneratorInterface/ExternalDecays/data/evt.pdl'),
-            user_decay_file = cms.FileInPath('GeneratorInterface/ExternalDecays/data/D0_Kpi.dec'),
-            list_forced_decays = cms.vstring('myD0', 'myanti-D0'),
-            operates_on_particles = cms.vint32(0)
+        EvtGen130 = cms.untracked.PSet(
+            decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2010.DEC'),
+            list_forced_decays = cms.vstring('myD0',
+                'myanti-D0'),
+            operates_on_particles = cms.vint32(),
+            particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt.pdl'),
+            user_decay_file = cms.vstring('GeneratorInterface/ExternalDecays/data/D0_Kpi.dec')
         ),
-        parameterSets = cms.vstring('EvtGen')
+        parameterSets = cms.vstring('EvtGen130')
     ),
     PythiaParameters = cms.PSet(
         pythia8CommonSettingsBlock,
