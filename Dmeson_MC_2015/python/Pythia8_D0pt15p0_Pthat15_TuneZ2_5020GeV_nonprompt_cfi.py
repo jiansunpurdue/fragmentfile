@@ -1,43 +1,46 @@
 import FWCore.ParameterSet.Config as cms
+from Configuration.Generator.Pythia8CommonSettings_cfi import *
+from Configuration.Generator.Pythia8CUEP8M1Settings_cfi import *
+from GeneratorInterface.EvtGenInterface.EvtGenSetting_cff import *
 
-
-process.generator = cms.EDFilter("Pythia8GeneratorFilter",
-    PythiaParameters = cms.PSet(
-        parameterSets = cms.vstring('pythia8CommonSettings', 
-            'pythia8CUEP8M1Settings', 
-            'processParameters'),
-        processParameters = cms.vstring('HardQCD:all = on', 
-            'PhaseSpace:pTHatMin = 15.', #min pthat 
-            'PhaseSpace:pTHatMax = 9999.'),
-        pythia8CUEP8M1Settings = cms.vstring('Tune:pp 14', 
-            'Tune:ee 7', 
-            'MultipartonInteractions:pT0Ref=2.4024', 
-            'MultipartonInteractions:ecmPow=0.25208', 
-            'MultipartonInteractions:expPow=1.6'),
-        pythia8CommonSettings = cms.vstring('Tune:preferLHAPDF = 2', 
-            'Main:timesAllowErrors = 10000', 
-            'Check:epTolErr = 0.01', 
-            'Beams:setProductionScalesFromLHEF = off', 
-            'SLHA:keepSM = on', 
-            'SLHA:minMassSM = 1000.', 
-            'ParticleDecays:limitTau0 = on', 
-            'ParticleDecays:tau0Max = 10', 
-            'ParticleDecays:allowPhotonRadiation = on')
-    ),
-    comEnergy = cms.double(5020.0),
-    filterEfficiency = cms.untracked.double(1.0),
-    maxEventsToPrint = cms.untracked.int32(0),
+generator = cms.EDFilter("Pythia8GeneratorFilter",
+    pythiaPylistVerbosity = cms.untracked.int32(0),
     pythiaHepMCVerbosity = cms.untracked.bool(False),
-    pythiaPylistVerbosity = cms.untracked.int32(0)
+    comEnergy = cms.double(5020.0),
+    maxEventsToPrint = cms.untracked.int32(0),
+    ExternalDecays = cms.PSet(
+        EvtGen = cms.untracked.PSet(
+            use_default_decay = cms.untracked.bool(False),
+            use_internal_pythia = cms.untracked.bool(False),
+            decay_table = cms.FileInPath('GeneratorInterface/ExternalDecays/data/DECAY_NOLONGLIFE.DEC'),
+            particle_property_file = cms.FileInPath('GeneratorInterface/ExternalDecays/data/evt.pdl'),
+            user_decay_file = cms.FileInPath('GeneratorInterface/ExternalDecays/data/D0_Kpi.dec'),
+            list_forced_decays = cms.vstring('myD0', 'myanti-D0'),
+            operates_on_particles = cms.vint32(0)
+        ),
+        parameterSets = cms.vstring('EvtGen')
+    ),
+    PythiaParameters = cms.PSet(
+        pythia8CommonSettingsBlock,
+        pythia8CUEP8M1SettingsBlock,
+        processParameters = cms.vstring(     
+            'HardQCD:all = on',
+            'PhaseSpace:pTHatMin = 15.', #min pthat
+        ),
+        parameterSets = cms.vstring(
+            'pythia8CommonSettings',
+            'pythia8CUEP8M1Settings',
+            'processParameters',
+        )
+    )
 )
 
-configurationMetadata = cms.untracked.PSet(
-    annotation = cms.untracked.string('PYTHIA 8 (unquenched) D0 (pt > 15 GeV) in NN (pt-hat > 15 GeV) at sqrt(s) = 5.02 TeV')
-    )
+generator.PythiaParameters.processParameters.extend(EvtGenExtraParticles)
+
 
 partonfilter = cms.EDFilter("PythiaFilter",
     ParticleID = cms.untracked.int32(5) # 4 for prompt D0 and 5 for non-prompt D0
-)
+	)
 ##or
 #partonfilter = cms.EDFilter("MCSingleParticleFilter",
 #                       MaxEta     = cms.untracked.vdouble(999.0, 999.0),
@@ -46,6 +49,7 @@ partonfilter = cms.EDFilter("PythiaFilter",
 #                       ParticleID = cms.untracked.vint32(4, -4)
 #                       )
 #
+
 D0filter = cms.EDFilter("MCSingleParticleFilter",
     MaxEta = cms.untracked.vdouble(2.4, 2.4),
     MinEta = cms.untracked.vdouble(-2.4, -2.4),
@@ -54,4 +58,3 @@ D0filter = cms.EDFilter("MCSingleParticleFilter",
 )
 
 ProductionFilterSequence = cms.Sequence(generator*partonfilter*D0filter)
-
