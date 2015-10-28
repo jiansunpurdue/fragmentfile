@@ -1,0 +1,82 @@
+1, PbPb 2.76 TeV D0 embedded Hydjet Samples
+
+Request: D0 to kaon pion embedded Hydjet samples with pthat 0, 15, 30 and 50, each 200k events.
+
+Gen-SiM Step:
+
+fragment files are here: /afs/cern.ch/work/j/jisun/public/Dmeson_MC_request_0622/fragmentfile/python/Pyquen_D0tokaonpion_D0pt1p0_Pthat0_TuneZ2_Unquenched_2760GeV_cfi.py, Pyquen_D0tokaonpion_D0pt1p0_Pthat15_TuneZ2_Unquenched_2760GeV_cfi.py, Pyquen_D0tokaonpion_D0pt1p0_Pthat30_TuneZ2_Unquenched_2760GeV_cfi.py, Pyquen_D0tokaonpion_D0pt1p0_Pthat50_TuneZ2_Unquenched_2760GeV_cfi.py
+
+cmsDriver.py fragment.py --filein dbs:/Hydjet1p8_TuneDrum_Quenched_MinBias_2760GeV/HiFall13-STARTHI53_V28-v2/GEN-SIM --fileout file:SIM.root --eventcontent RAWDEBUG --datatier GEN-SIM --step GEN,SIM --processName HISIGNAL --conditions STARTHI53_LV1::All --beamspot MatchHI --himix --scenario HeavyIons --no_exec
+
+100 events was run
+
+<Metric Name="LargestVsizeEventT1-d-VSIZE" Value="1882.9"/>
+<Metric Name="LargeVsizeIncreaseEventL2-e-DELTV" Value="15.5078"/>
+<Metric Name="LargestVsizeEventT1-b-RUN" Value="1"/>
+<Metric Name="LargestRssEvent-a-COUNT" Value="66"/>
+<Metric Name="PeakValueRss" Value="1439.77"/>
+
+TimeReport> Time report complete in 4927.81 seconds
+ Time Summary:
+ - Min event:   16.4079
+ - Max event:   79.8206
+ - Avg event:   49.2781
+ - Total job:   4927.81
+ CPU Summary:
+ - Min event:   16.0936
+ - Max event:   77.2952
+ - Avg event:   45.9429
+ - Total job:   4713.55
+ - Total event: 4594.29
+
+
+Digi Step:
+
+cmsDriver.py step1 --filein file:SIM.root --fileout file:RAW.root --eventcontent RAWDEBUG --datatier GEN-SIM-RAW --step DIGI,L1,DIGI2RAW,HLT:HIon,RAW2DIGI,L1Reco --conditions STARTHI53_LV1::All --himix --scenario HeavyIons --no_exec
+
+100 events was run
+
+<Metric Name="LargestVsizeEventT1-d-VSIZE" Value="2813.59"/>
+<Metric Name="LargeVsizeIncreaseEventL2-e-DELTV" Value="0"/>
+<Metric Name="LargestVsizeEventT1-b-RUN" Value="1"/>
+<Metric Name="LargestRssEvent-a-COUNT" Value="66"/>
+<Metric Name="PeakValueRss" Value="2528.61"/>
+
+TimeReport> Time report complete in 2953.35 seconds
+ Time Summary:
+ - Min event:   1.75167
+ - Max event:   174.486
+ - Avg event:   29.5335
+ - Total job:   2953.35
+ CPU Summary:
+ - Min event:   1.75173
+ - Max event:   174.444
+ - Avg event:   27.0012
+ - Total job:   2743.73
+ - Total event: 2700.12
+
+
+RECO step:
+
+cmsDriver.py step2 --filein file:RAW.root --fileout file:RECO.root --eventcontent RECODEBUG --datatier GEN-SIM-RECO --step RAW2DIGI,L1Reco,RECO --conditions STARTHI53_LV1::All --himix --scenario HeavyIons --no_exec
+
+100 events was run
+
+<Metric Name="LargestVsizeEventT1-d-VSIZE" Value="2561.99"/>
+<Metric Name="LargeVsizeIncreaseEventL2-e-DELTV" Value="0"/>
+<Metric Name="LargestVsizeEventT1-b-RUN" Value="1"/>
+<Metric Name="LargestRssEvent-a-COUNT" Value="66"/>
+<Metric Name="PeakValueRss" Value="2312.23"/>
+
+TimeReport> Time report complete in 2907.14 seconds
+ Time Summary:
+ - Min event:   0.871711
+ - Max event:   208.174
+ - Avg event:   29.0714
+ - Total job:   2907.14
+ CPU Summary:
+ - Min event:   0.870868
+ - Max event:   208.132
+ - Avg event:   26.8038
+ - Total job:   2703.52
+ - Total event: 2680.38

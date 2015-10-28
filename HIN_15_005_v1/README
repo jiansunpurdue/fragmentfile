@@ -1,0 +1,10 @@
+cmsrel CMSSW_5_3_24
+cd CMSSW_5_3_24/src
+cmsenv
+git clone https://github.com/jiansunpurdue/Dmeson_MC_request.git
+mv Dmeson_MC_request/MCRequest_PbPbD0andppD0.txt .
+scram b -j20
+cmsDriver.py Dmeson_MC_request/fragmentfile/python/Pyquen_D0tokaonpion_Pt0_TuneZ2_Unquenched_2760GeV_cfi.py --filein dbs:/Hydjet1p8_TuneDrum_Quenched_MinBias_2760GeV/HiFall13-STARTHI53_V28-v2/GEN-SIM --fileout file:SIM.root --eventcontent RAWDEBUG --datatier GEN-SIM --step GEN,SIM --processName HISIGNAL --conditions STARTHI53_LV1::All --beamspot MatchHI --himix --scenario HeavyIons --no_exec
+
+All needed information are in MCRequest_PbPbD0andppD0.txt
+Now all fragment files are in Dmeson_MC_request/fragmentfile/python/, for gen-sim step, please replace the fragment.py with files in Dmeson_MC_request/fragmentfile/python/ like above cmsDirive.py command
