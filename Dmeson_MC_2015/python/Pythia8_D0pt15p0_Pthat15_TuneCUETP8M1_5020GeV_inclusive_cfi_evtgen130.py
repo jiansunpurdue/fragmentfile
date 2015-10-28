@@ -11,11 +11,10 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
     ExternalDecays = cms.PSet(
         EvtGen130 = cms.untracked.PSet(
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2010.DEC'),
-            list_forced_decays = cms.vstring('myD0',
-                'myanti-D0'),
             operates_on_particles = cms.vint32(),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt.pdl'),
             user_decay_file = cms.vstring('GeneratorInterface/ExternalDecays/data/D0_Kpi.dec')
+            list_forced_decays = cms.vstring('myD0', 'myanti-D0'),
         ),
         parameterSets = cms.vstring('EvtGen130')
     ),

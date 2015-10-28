@@ -13,8 +13,8 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2010.DEC'),
             operates_on_particles = cms.vint32(),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt.pdl'),
-            user_decay_file = cms.vstring('GeneratorInterface/ExternalDecays/data/D0_Kpi.dec')
-            list_forced_decays = cms.vstring('myD0', 'myanti-D0'),
+            user_decay_file = cms.vstring('GeneratorInterface/ExternalDecays/data/Ds_phipi_KK.dec')
+            list_forced_decays = cms.vstring('myD_s+', 'myD_s-', 'myPhi'),
         ),
         parameterSets = cms.vstring('EvtGen130')
     ),
@@ -52,7 +52,7 @@ D0filter = cms.EDFilter("MCSingleParticleFilter",
     MaxEta = cms.untracked.vdouble(2.4, 2.4),
     MinEta = cms.untracked.vdouble(-2.4, -2.4),
     MinPt = cms.untracked.vdouble(15.0, 15.0), #min pt
-    ParticleID = cms.untracked.vint32(421, -421)
+    ParticleID = cms.untracked.vint32(431, -431)
 )
 
 ProductionFilterSequence = cms.Sequence(generator*partonfilter*D0filter)
