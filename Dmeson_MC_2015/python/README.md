@@ -1,6 +1,14 @@
+*prompt*.py are fragment files for prompt D0 and Ds production
+
+Pythia8_D0pt15p0_Pthat15_TuneCUETP8M1_5020GeV_nonprompt_cfi_evtgen130.py is sample fragment file for non-prompt D0 (better to double check fraction of non-prompt D0)
+Pythia8_Dspt15p0_Pthat15_TuneCUETP8M1_5020GeV_nonprompt_cfi_evtgen130.py is sample fragment file for non-prompt Ds (better to double check fraction of non-prompt Ds)
+
+D0 filter efficiency:
+Ds filter efficiency:
+
 1, PbPb
 
-git cms-merge-topic 10839
+git cms-merge-topic 10839 (Not in official CMSSW yet)
 
 GEN-SIM:
 
@@ -21,7 +29,7 @@ GEN-SIM:
 
 cmsDriver.py fragmentfile/inclusiveD/python/Pythia_D0pt35p0_Pthat35_TuneZ2_5020GeV_cfi.py --conditions auto:run2_mc --eventcontent RAWSIM -s GEN,SIM --datatier GEN-SIM --beamspot NominalHICollision2015 --no_exec
 
-# beamspot to be decided: NominalCollision2015 (pp 13 TeV) or NominalHICollision2015??? MatchHI does not work because it looks for "mix"
+# beamspot to be decided: NominalCollision2015 (pp 13 TeV) or NominalHICollision2015??
 
 Digi:
 
