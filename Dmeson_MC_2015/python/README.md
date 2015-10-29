@@ -6,10 +6,10 @@ Pythia8_Dspt15p0_Pthat15_TuneCUETP8M1_5020GeV_nonprompt_cfi_evtgen130.py is samp
 
 
 Event level Filter efficiency from 10k inputs:
--prompt D0 filter efficiency: 1.010e-02 (Pt0), 1.300e-02 (Pt5), 7.300e-03 (Pt15), 6.400e-03 (Pt30), 5.400e-03 (Pt50), 2.700e-03 (Pt70), 2.700e-03 (Pt90)
--prompt Ds filter efficiency: 2.300e-03 (Pt0), 2.800e-03 (Pt5), 1.200e-03 (Pt15), 1.100e-03 (Pt30), 1.200e-03 (Pt50)
--non prompt D0 filter efficiency:
--non prompt Ds filter efficiency:
+- prompt D0 filter efficiency: 1.010e-02 (Pt0), 1.300e-02 (Pt5), 7.300e-03 (Pt15), 6.400e-03 (Pt30), 5.400e-03 (Pt50), 2.700e-03 (Pt70), 2.700e-03 (Pt90)
+- prompt Ds filter efficiency: 2.300e-03 (Pt0), 2.800e-03 (Pt5), 1.200e-03 (Pt15), 1.100e-03 (Pt30), 1.200e-03 (Pt50)
+- non prompt D0 filter efficiency:
+- non prompt Ds filter efficiency:
 
 
 cmsDriver.py commands should be the same with request from other groups. like dilepton: https://twiki.cern.ch/twiki/bin/view/CMS/DileptonEmbeddingRequest
