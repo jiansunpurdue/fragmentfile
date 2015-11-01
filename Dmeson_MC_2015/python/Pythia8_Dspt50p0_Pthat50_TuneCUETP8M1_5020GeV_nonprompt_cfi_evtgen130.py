@@ -37,7 +37,7 @@ generator.PythiaParameters.processParameters.extend(EvtGenExtraParticles)
 
 
 partonfilter = cms.EDFilter("PythiaFilter",
-    ParticleID = cms.untracked.int32(4) # 4 for prompt D0 and 5 for non-prompt D0
+    ParticleID = cms.untracked.int32(5) # 4 for prompt D0 and 5 for non-prompt D0
 	)
 ##or
 #partonfilter = cms.EDFilter("MCSingleParticleFilter",

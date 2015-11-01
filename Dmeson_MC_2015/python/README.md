@@ -1,9 +1,5 @@
-*prompt*.py are fragment files for prompt D0 and Ds production
-
-Pythia8_D0pt15p0_Pthat15_TuneCUETP8M1_5020GeV_nonprompt_cfi_evtgen130.py is sample fragment file for non-prompt D0 (better to double check fraction of non-prompt D0)
-
-Pythia8_Dspt15p0_Pthat15_TuneCUETP8M1_5020GeV_nonprompt_cfi_evtgen130.py is sample fragment file for non-prompt Ds (better to double check fraction of non-prompt Ds)
-
+*_prompt_*.py are fragment files for prompt D0 and Ds production
+*_nonprompt_*.py are fragment files for non-prompt D0 and Ds production
 
 Event level Filter efficiency from 10k inputs:
 - prompt D0 filter efficiency: 1.010e-02 (Pt0), 1.300e-02 (Pt5), 7.300e-03 (Pt15), 6.400e-03 (Pt30), 5.400e-03 (Pt50), 2.700e-03 (Pt70), 2.700e-03 (Pt90)

@@ -48,11 +48,11 @@ partonfilter = cms.EDFilter("PythiaFilter",
 #                       )
 #
 
-D0filter = cms.EDFilter("MCSingleParticleFilter",
+Dfilter = cms.EDFilter("MCSingleParticleFilter",
     MaxEta = cms.untracked.vdouble(2.4, 2.4),
     MinEta = cms.untracked.vdouble(-2.4, -2.4),
     MinPt = cms.untracked.vdouble(15.0, 15.0), #min pt
     ParticleID = cms.untracked.vint32(421, -421)
 )
 
-ProductionFilterSequence = cms.Sequence(generator*partonfilter*D0filter)
+ProductionFilterSequence = cms.Sequence(generator*partonfilter*Dfilter)

@@ -23,7 +23,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
         pythia8CUEP8M1SettingsBlock,
         processParameters = cms.vstring(     
             'HardQCD:all = on',
-            'PhaseSpace:pTHatMin = 50.', #min pthat
+            'PhaseSpace:pTHatMin = 5.', #min pthat
         ),
         parameterSets = cms.vstring(
             'pythia8CommonSettings',
@@ -37,7 +37,7 @@ generator.PythiaParameters.processParameters.extend(EvtGenExtraParticles)
 
 
 partonfilter = cms.EDFilter("PythiaFilter",
-    ParticleID = cms.untracked.int32(4) # 4 for prompt D0 and 5 for non-prompt D0
+    ParticleID = cms.untracked.int32(5) # 4 for prompt D0 and 5 for non-prompt D0
 	)
 ##or
 #partonfilter = cms.EDFilter("MCSingleParticleFilter",
@@ -51,7 +51,7 @@ partonfilter = cms.EDFilter("PythiaFilter",
 Dfilter = cms.EDFilter("MCSingleParticleFilter",
     MaxEta = cms.untracked.vdouble(2.4, 2.4),
     MinEta = cms.untracked.vdouble(-2.4, -2.4),
-    MinPt = cms.untracked.vdouble(50.0, 50.0), #min pt
+    MinPt = cms.untracked.vdouble(5.0, 5.0), #min pt
     ParticleID = cms.untracked.vint32(431, -431)
 )
 

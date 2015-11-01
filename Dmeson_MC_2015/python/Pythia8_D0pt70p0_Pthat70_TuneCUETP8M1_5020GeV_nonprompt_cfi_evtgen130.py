@@ -13,8 +13,8 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2010.DEC'),
             operates_on_particles = cms.vint32(),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt.pdl'),
-            user_decay_file = cms.vstring('GeneratorInterface/ExternalDecays/data/Ds_phipi_KK.dec'),
-            list_forced_decays = cms.vstring('myD_s+', 'myD_s-', 'myPhi')
+            user_decay_file = cms.vstring('GeneratorInterface/ExternalDecays/data/D0_Kpi.dec'),
+            list_forced_decays = cms.vstring('myD0', 'myanti-D0')
         ),
         parameterSets = cms.vstring('EvtGen130')
     ),
@@ -23,7 +23,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
         pythia8CUEP8M1SettingsBlock,
         processParameters = cms.vstring(     
             'HardQCD:all = on',
-            'PhaseSpace:pTHatMin = 50.', #min pthat
+            'PhaseSpace:pTHatMin = 70.', #min pthat
         ),
         parameterSets = cms.vstring(
             'pythia8CommonSettings',
@@ -37,7 +37,7 @@ generator.PythiaParameters.processParameters.extend(EvtGenExtraParticles)
 
 
 partonfilter = cms.EDFilter("PythiaFilter",
-    ParticleID = cms.untracked.int32(4) # 4 for prompt D0 and 5 for non-prompt D0
+    ParticleID = cms.untracked.int32(5) # 4 for prompt D0 and 5 for non-prompt D0
 	)
 ##or
 #partonfilter = cms.EDFilter("MCSingleParticleFilter",
@@ -51,8 +51,8 @@ partonfilter = cms.EDFilter("PythiaFilter",
 Dfilter = cms.EDFilter("MCSingleParticleFilter",
     MaxEta = cms.untracked.vdouble(2.4, 2.4),
     MinEta = cms.untracked.vdouble(-2.4, -2.4),
-    MinPt = cms.untracked.vdouble(50.0, 50.0), #min pt
-    ParticleID = cms.untracked.vint32(431, -431)
+    MinPt = cms.untracked.vdouble(70.0, 70.0), #min pt
+    ParticleID = cms.untracked.vint32(421, -421)
 )
 
 ProductionFilterSequence = cms.Sequence(generator*partonfilter*Dfilter)
