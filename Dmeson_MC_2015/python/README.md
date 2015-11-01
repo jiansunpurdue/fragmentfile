@@ -20,7 +20,7 @@ git cms-merge-topic 10839 (Not in official CMSSW yet)
 
 GEN-SIM:
 
-cmsDriver.py fragmentfile/Dmeson_MC_2015/python/Pyquen_D0pt15p0_Pthat15_TuneZ2_Unquenched_5020GeV_prompt_cfi_v3.py --conditions auto:run2_mc_HIon -s GEN,SIM --pileup_input das:/Hydjet_Quenched_MinBias_5020GeV_750/HiFall15-75X_mcRun2_HeavyIon_v1_75X_mcRun2_HeavyIon_v1-v1/GEN-SIM -n 10 --eventcontent RAWSIM --scenario HeavyIons --pileup HiMixGEN --datatier GEN-SIM --beamspot MatchHI --customise SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1_HI --pileup_dasoption "--limit 0" --no_exec
+cmsDriver.py fragmentfile/Dmeson_MC_2015/python/Pythia8_D0pt0p0_Pthat0_TuneCUETP8M1_5020GeV_prompt_cfi_evtgen130.py --conditions auto:run2_mc_HIon -s GEN,SIM --pileup_input das:/Hydjet_Quenched_MinBias_5020GeV_750/HiFall15-75X_mcRun2_HeavyIon_v1_75X_mcRun2_HeavyIon_v1-v1/GEN-SIM -n 10 --eventcontent RAWSIM --scenario HeavyIons --pileup HiMixGEN --datatier GEN-SIM --beamspot MatchHI --customise SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1_HI --pileup_dasoption "--limit 0" --no_exec
 
 Digi:
 
@@ -35,7 +35,7 @@ cmsDriver.py step3 --conditions auto:run2_mc_HIon -s RAW2DIGI,L1Reco,RECO -n -1 
 
 GEN-SIM:
 
-cmsDriver.py fragmentfile/inclusiveD/python/Pythia_D0pt35p0_Pthat35_TuneZ2_5020GeV_cfi.py --conditions auto:run2_mc --eventcontent RAWSIM -s GEN,SIM --datatier GEN-SIM --beamspot NominalHICollision2015 --no_exec
+cmsDriver.py fragmentfile/Dmeson_MC_2015/python/Pythia8_D0pt0p0_Pthat0_TuneCUETP8M1_5020GeV_prompt_cfi_evtgen130.py --conditions auto:run2_mc --eventcontent RAWSIM -s GEN,SIM --datatier GEN-SIM --beamspot NominalHICollision2015 --no_exec
 
 # beamspot to be decided: NominalCollision2015 (pp 13 TeV) or NominalHICollision2015??
 
