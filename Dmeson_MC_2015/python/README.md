@@ -12,7 +12,7 @@ cmsDriver.py commands should be the same with request from other groups. like di
 
 1, PbPb
 
-git cms-merge-topic 10839 (Not in official CMSSW yet)
+CMSSW_7_5_4
 
 GEN-SIM:
 
