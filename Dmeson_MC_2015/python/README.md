@@ -1,12 +1,11 @@
 *_prompt_*.py are fragment files for prompt D0 and Ds production
-
 *_nonprompt_*.py are fragment files for non-prompt D0 and Ds production
 
-Event level Filter efficiency from 10k inputs:
-- prompt D0 filter efficiency: 1.010e-02 (Pt0), 1.300e-02 (Pt5), 7.300e-03 (Pt15), 6.400e-03 (Pt30), 5.400e-03 (Pt50), 2.700e-03 (Pt70), 2.700e-03 (Pt90)
-- prompt Ds filter efficiency: 2.300e-03 (Pt0), 2.800e-03 (Pt5), 1.200e-03 (Pt15), 1.100e-03 (Pt30), 1.200e-03 (Pt50)
-- non prompt D0 filter efficiency:
-- non prompt Ds filter efficiency:
+Event level Filter efficiency:
+- prompt D0 filter efficiency: 9.600e-03 (Pt0), 1.176e-02 (Pt5), 6.720e-03 (Pt15), 5.760e-03 (Pt30), 4.540e-03 (Pt50), 3.240e-03 (Pt70), 3.580e-03 (Pt90)
+- prompt Ds filter efficiency: 1.920e-03 (Pt0), 2.480e-03 (Pt5), 1.180e-03 (Pt15), 1.300e-03 (Pt30), 8.200e-04 (Pt50)
+- non prompt D0 filter efficiency: 2.422e-04 (Pt0), 1.419e-03 (Pt5), 1.067e-03 (Pt15), 9.560e-04 (Pt30), 6.531e-04 (Pt50), 5.188e-04 (Pt70), 4.281e-04 (Pt90)
+- non prompt Ds filter efficiency: 1.116e-04 (Pt0), 5.590e-04 (Pt5), 5.651e-04 (Pt15), 3.011e-04 (Pt30), 2.116e-04 (Pt50)
 
 
 cmsDriver.py commands should be the same with request from other groups. like dilepton: https://twiki.cern.ch/twiki/bin/view/CMS/DileptonEmbeddingRequest
