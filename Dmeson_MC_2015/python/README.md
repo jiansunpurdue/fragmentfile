@@ -13,8 +13,11 @@ cmsDriver.py commands should be the same with request from other groups. like di
 1, PbPb
 
 cmsrel CMSSW_7_5_4
+
 cd CMSSW_7_5_4/src
+
 git clone https://github.com/jiansunpurdue/fragmentfile
+
 scram b -j8
 
 
