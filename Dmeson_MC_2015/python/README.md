@@ -12,11 +12,15 @@ cmsDriver.py commands should be the same with request from other groups. like di
 
 1, PbPb
 
-CMSSW_7_5_4
+cmsrel CMSSW_7_5_4
+cd CMSSW_7_5_4/src
+git clone https://github.com/jiansunpurdue/fragmentfile
+scram b -j8
+
 
 GEN-SIM:
 
-cmsDriver.py fragmentfile/Dmeson_MC_2015/python/Pythia8_D0pt0p0_Pthat0_TuneCUETP8M1_5020GeV_prompt_cfi_evtgen130.py --conditions auto:run2_mc_HIon -s GEN,SIM --pileup_input das:/Hydjet_Quenched_MinBias_5020GeV_750/HiFall15-75X_mcRun2_HeavyIon_v1_75X_mcRun2_HeavyIon_v1-v1/GEN-SIM -n 10 --eventcontent RAWSIM --scenario HeavyIons --pileup HiMixGEN --datatier GEN-SIM --beamspot MatchHI --customise SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1_HI --pileup_dasoption "--limit 0" --no_exec
+cmsDriver.py fragmentfile/Dmeson_MC_2015/python/Pythia8_D0pt15p0_Pthat15_TuneCUETP8M1_5020GeV_prompt_cfi_evtgen130.py --conditions auto:run2_mc_HIon -s GEN,SIM --pileup_input das:/Hydjet_Quenched_MinBias_5020GeV_750/HiFall15-75X_mcRun2_HeavyIon_v1_75X_mcRun2_HeavyIon_v1-v1/GEN-SIM -n 20000 --eventcontent RAWSIM --scenario HeavyIons --pileup HiMixGEN --datatier GEN-SIM --beamspot MatchHI --customise SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1_HI --pileup_dasoption "--limit 0" --no_exec
 
 Digi:
 
