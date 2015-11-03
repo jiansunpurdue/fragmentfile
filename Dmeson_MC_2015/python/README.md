@@ -38,9 +38,7 @@ cmsDriver.py step3 --conditions auto:run2_mc_HIon -s RAW2DIGI,L1Reco,RECO -n -1 
 
 GEN-SIM:
 
-cmsDriver.py fragmentfile/Dmeson_MC_2015/python/Pythia8_D0pt0p0_Pthat0_TuneCUETP8M1_5020GeV_prompt_cfi_evtgen130.py --conditions auto:run2_mc --eventcontent RAWSIM -s GEN,SIM --datatier GEN-SIM --beamspot NominalHICollision2015 --no_exec
-
-# beamspot to be decided: NominalCollision2015 (pp 13 TeV) or NominalHICollision2015??
+cmsDriver.py fragmentfile/Dmeson_MC_2015/python/Pythia8_D0pt15p0_Pthat15_TuneCUETP8M1_5020GeV_prompt_cfi_evtgen130.py -n 20000 --conditions auto:run2_mc --eventcontent RAWSIM -s GEN,SIM --datatier GEN-SIM --beamspot NominalHICollision2015 --no_exec
 
 Digi:
 
